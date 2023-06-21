@@ -87,6 +87,9 @@ export OS_SWIFT_ENDPOINT_OVERRIDE=http://my-local/v1/swift
 # You can define a custom Manila CSI driver name in case your setup uses a
 # different name than "nfs.manila.csi.openstack.org"
 export MANILA_DRIVER_NAME=ceph.manila.csi.openstack.org
+
+# For OpenStack API debug logs use the environment variable below
+export OS_DEBUG=true
 ```
 
 If your OpenStack cloud has separated Swift service (SwiftStack or different), you can specify special environment variables for Swift to authenticate it and keep the standard ones for Cinder:
