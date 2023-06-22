@@ -91,6 +91,9 @@ func Authenticate(pc **gophercloud.ProviderClient, service string, config map[st
 	}
 	(*pc).HTTPClient.Transport = transport
 
+	// set user agent with a version
+	(*pc).UserAgent.Prepend("velero-plugin-for-openstack/" + Version + "@" + GitSHA)
+
 	// enable API debug logs
 	if debug, _ := strconv.ParseBool(GetEnv("OS_DEBUG", "false")); debug {
 		(*pc).HTTPClient.Transport = &client.RoundTripper{
