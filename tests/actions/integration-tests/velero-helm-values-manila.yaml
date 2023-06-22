@@ -1,0 +1,21 @@
+---
+credentials:
+  extraSecretRef: "velero-credentials"
+configuration:
+  backupStorageLocation:
+  - name: swift
+    provider: community.openstack.org/openstack
+    accessMode: ReadWrite
+    bucket: my-swift-container
+  volumeSnapshotLocation:
+  - provider: community.openstack.org/openstack-manila
+    name: manila
+initContainers:
+- name: velero-plugin-openstack
+  image: ""
+  imagePullPolicy: IfNotPresent
+  volumeMounts:
+    - mountPath: /target
+      name: plugins
+snapshotsEnabled: true
+backupsEnabled: true
