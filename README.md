@@ -83,6 +83,10 @@ export OS_SWIFT_TEMP_URL_KEY=secret-key
 # If you want to completely override Swift endpoint URL
 # Has a higher priority over the OS_SWIFT_ACCOUNT_OVERRIDE
 export OS_SWIFT_ENDPOINT_OVERRIDE=http://my-local/v1/swift
+
+# You can define a custom Manila CSI driver name in case your setup uses a
+# different name than "nfs.manila.csi.openstack.org"
+export MANILA_DRIVER_NAME=ceph.manila.csi.openstack.org
 ```
 
 If your OpenStack cloud has separated Swift service (SwiftStack or different), you can specify special environment variables for Swift to authenticate it and keep the standard ones for Cinder:
